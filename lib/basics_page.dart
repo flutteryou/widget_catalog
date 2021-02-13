@@ -48,11 +48,29 @@ class BasicsPage extends StatelessWidget {
       case 'AppBar':
         widget = _AppBarDemo();
         break;
+      case 'Row':
+        widget = _RowDemo();
+        break;
       case 'Column':
         widget = _ColumnDemo();
         break;
       case 'Container':
         widget = _ContainerDemo();
+        break;
+      case 'Icon':
+        widget = _IconDemo();
+        break;
+      case 'Text':
+        widget = _TextDemo();
+        break;
+      case 'Image':
+        widget = _ImageDemo();
+        break;
+      case 'PlaceHolder':
+        widget = _PlaceHolder();
+        break;
+      case 'Scaffold':
+        widget = _ScaffoldDemo1();
         break;
     }
 
@@ -105,6 +123,49 @@ class _AppBarDemo extends StatelessWidget {
           'This is the home page',
           style: TextStyle(fontSize: 24),
         ),
+      ),
+    );
+  }
+}
+
+class _RowDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Row Demo'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Text('Deliver features faster',
+                    textAlign: TextAlign.center),
+              ),
+              Expanded(
+                child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
+              ),
+              Expanded(
+                child: FittedBox(
+                  fit: BoxFit.contain,
+                  child: const FlutterLogo(),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            textDirection: TextDirection.rtl,
+            children: [
+              const FlutterLogo(),
+              const Expanded(
+                child: Text(
+                    "Flutter's hot reload helps you quickly and easily experiment, build UIs, add features, and fix bug faster. Experience sub-second reload times, without losing state, on emulators, simulators, and hardware for iOS and Android."),
+              ),
+              const Icon(Icons.sentiment_very_satisfied),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -203,6 +264,227 @@ class _ContainerDemo extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _IconDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Icon Demo'),
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: const <Widget>[
+            Icon(
+              Icons.favorite,
+              color: Colors.pink,
+              size: 24.0,
+              semanticLabel: 'Text to announce in accessibility modes',
+            ),
+            Icon(
+              Icons.audiotrack,
+              color: Colors.green,
+              size: 30.0,
+            ),
+            Icon(
+              Icons.beach_access,
+              color: Colors.blue,
+              size: 36.0,
+            ),
+          ],
+        ));
+  }
+}
+
+class _TextDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Text Demo'),
+      ),
+      body: ListView(
+        children: const <Widget>[
+          Text(
+            'Hello, how are you',
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text.rich(TextSpan(text: 'Hello', children: <TextSpan>[
+            TextSpan(
+              text: ' beautiful ',
+              style: TextStyle(fontStyle: FontStyle.italic),
+            ),
+            TextSpan(
+              text: 'world',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ])),
+        ],
+      ),
+    );
+  }
+}
+
+class _ImageDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Image Demo'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Image.network(
+                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+            const Image(
+              image: NetworkImage(
+                  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            )
+          ],
+        ));
+  }
+}
+
+class _PlaceHolder extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('PlaceHolder demo'),
+      ),
+      body: Placeholder(
+        fallbackHeight: 50.0,
+        fallbackWidth: 100.0,
+      ),
+    );
+  }
+}
+
+class _ScaffoldDemo1 extends StatefulWidget {
+  _ScaffoldDemo1({Key key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _ScaffoldDemo1State();
+  }
+}
+
+class _ScaffoldDemo1State extends State<_ScaffoldDemo1> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Scaffold Demo 1'),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              switch (value) {
+                case 'Demo2':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => _ScaffoldDemo2()
+                  ));
+                  break;
+                case 'Demo3':
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => _ScaffoldDemo3()
+                  ));
+                  break;
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return {'Demo2', 'Demo3'}.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('You have pressed the button $_count times.'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() => _count++),
+        tooltip: 'Increment Counter',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class _ScaffoldDemo2 extends StatefulWidget {
+  _ScaffoldDemo2({Key key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _ScaffoldDemo2State();
+  }
+}
+
+class _ScaffoldDemo2State extends State<_ScaffoldDemo2> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Scaffold Demo 2'),
+      ),
+      body: Center(
+        child: Text('You have pressed the button $_count times.'),
+      ),
+      backgroundColor: Colors.blueGrey.shade200,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() => _count++),
+        tooltip: 'Increment Counter',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class _ScaffoldDemo3 extends StatefulWidget {
+  _ScaffoldDemo3({Key key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _ScaffoldDemo3State();
+  }
+}
+
+class _ScaffoldDemo3State extends State<_ScaffoldDemo3> {
+  int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Scaffold Demo 3'),
+      ),
+      body: Center(
+        child: Text('You have pressed the button $_count times.'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        child: Container(
+          height: 50.0,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() => _count++),
+        tooltip: 'Increment Counter',
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
