@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_catalog/AssetsImagesAndIconsPage.dart';
+import 'package:widget_catalog/assets_images_and_icons_page.dart';
 import 'package:widget_catalog/accessibility_page.dart';
 import 'package:widget_catalog/animation_and_motion_page.dart';
 import 'package:widget_catalog/async_page.dart';
@@ -8,7 +8,7 @@ import 'package:widget_catalog/cupertino_page.dart';
 import 'package:widget_catalog/input_page.dart';
 import 'package:widget_catalog/interaction_models_page.dart';
 import 'package:widget_catalog/layout_page.dart';
-import 'package:widget_catalog/material_components_page.dart';
+import 'package:widget_catalog/material_components/material_components_page.dart';
 import 'package:widget_catalog/painting_and_effects_page.dart';
 import 'package:widget_catalog/scrolling_page.dart';
 import 'package:widget_catalog/styling_page.dart';

@@ -46,7 +46,7 @@ class BasicsPage extends StatelessWidget {
     Widget widget = this;
     switch (value) {
       case 'AppBar':
-        widget = _AppBarDemo();
+        widget = AppBarDemo();
         break;
       case 'Row':
         widget = _RowDemo();
@@ -84,7 +84,7 @@ class BasicsPage extends StatelessWidget {
   }
 }
 
-class _AppBarDemo extends StatelessWidget {
+class AppBarDemo extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final SnackBar snackBar = const SnackBar(content: Text('Showing Snackbar'));
 
@@ -106,21 +106,25 @@ class _AppBarDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(title: const Text('AppBar Demo'), actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.add_alert),
-          tooltip: 'Show Snackbar',
-          onPressed: () {
-            scaffoldKey.currentState.showSnackBar(snackBar);
-          },
-        ),
-        IconButton(
+      appBar: AppBar(
+        title: const Text('AppBar Demo'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              scaffoldKey.currentState.showSnackBar(snackBar);
+            },
+          ),
+          IconButton(
             icon: const Icon(Icons.navigate_next),
             tooltip: 'Next page',
             onPressed: () {
               openPage(context);
-            }),
-      ]),
+            },
+          ),
+        ],
+      ),
       body: const Center(
         child: Text(
           'This is the home page',
