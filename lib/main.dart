@@ -6,6 +6,7 @@ import 'package:widget_catalog/animation_and_motion_page.dart';
 import 'package:widget_catalog/async_page.dart';
 import 'package:widget_catalog/basics_page.dart';
 import 'package:widget_catalog/cupertino_page.dart';
+import 'package:widget_catalog/data_and_backend/data_and_backend_page.dart';
 import 'package:widget_catalog/input_page.dart';
 import 'package:widget_catalog/interaction_models_page.dart';
 import 'package:widget_catalog/layout_page.dart';
@@ -14,6 +15,7 @@ import 'package:widget_catalog/painting_and_effects_page.dart';
 import 'package:widget_catalog/scrolling_page.dart';
 import 'package:widget_catalog/styling_page.dart';
 import 'package:widget_catalog/text_page.dart';
+import 'package:widget_catalog/common/widget_entry.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -47,33 +49,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class _PageEntry {
-  _PageEntry({
-    this.name,
-    this.widget,
-  })  : assert(name != null, 'name cannot be empty'),
-        assert(widget != null, 'widget cannot be empty');
-  final String name;
-  final Widget widget;
-}
-
 class MyHomePage extends StatelessWidget {
-  final List<_PageEntry> entries = [
-    _PageEntry(name: 'Accessibility', widget: AccessibilityPage()),
-    _PageEntry(name: 'Animation and Motion', widget: AnimationAndMotionPage()),
-    _PageEntry(
-        name: 'Assets, Images, and Icons', widget: AssetsImagesAndIconsPage()),
-    _PageEntry(name: 'Async', widget: AsyncPage()),
-    _PageEntry(name: 'Basics', widget: BasicsPage()),
-    _PageEntry(name: 'Cupertino (iOS-style widgets)', widget: CupertinoPage()),
-    _PageEntry(name: 'Input', widget: InputPage()),
-    _PageEntry(name: 'Interaction Models', widget: InteractionModelsPage()),
-    _PageEntry(name: 'Layout', widget: LayoutPage()),
-    _PageEntry(name: 'Material Components', widget: MaterialComponentsPage()),
-    _PageEntry(name: 'Panting and effects', widget: PaintingAndEffectsPage()),
-    _PageEntry(name: 'Scrolling', widget: ScrollingPage()),
-    _PageEntry(name: 'Styling', widget: StylingPage()),
-    _PageEntry(name: 'Text', widget: TextPage()),
+  final List<WidgetEntry> entries = [
+    WidgetEntry('Accessibility', AccessibilityPage()),
+    WidgetEntry('Animation and Motion', AnimationAndMotionPage()),
+    WidgetEntry('Assets, Images, and Icons',  AssetsImagesAndIconsPage()),
+    WidgetEntry('Async', AsyncPage()),
+    WidgetEntry('Basics', BasicsPage()),
+    WidgetEntry('Cupertino (iOS-style widgets)', CupertinoPage()),
+    WidgetEntry('Input', InputPage()),
+    WidgetEntry('Interaction Models', InteractionModelsPage()),
+    WidgetEntry('Layout', LayoutPage()),
+    WidgetEntry('Material Components', MaterialComponentsPage()),
+    WidgetEntry('Panting and effects', PaintingAndEffectsPage()),
+    WidgetEntry('Scrolling', ScrollingPage()),
+    WidgetEntry('Styling', StylingPage()),
+    WidgetEntry('Text', TextPage()),
   ];
 
   @override
@@ -86,24 +77,38 @@ class MyHomePage extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-              child: Container(
-                height: 50,
-                child: Center(
-                  child: Text(
-                    '${entries[index].name}',
-                  ),
-                ),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => entries[index].widget),
-                );
-              });
+          return ListTile(
+            title: Text(entries[index].name),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => entries[index].widget),
+            ),
+          );
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text("Let's Flutter"),
+              decoration: BoxDecoration(color: Colors.blue),
+            ),
+            ListTile(
+              title: Text('User Interface'),
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
+              title: Text('Data & backend'),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DataAndBackendPage(),
+                  )),
+            ),
+          ],
+        ),
       ),
     );
   }

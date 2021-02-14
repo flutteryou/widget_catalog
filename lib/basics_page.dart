@@ -113,7 +113,9 @@ class AppBarDemo extends StatelessWidget {
             icon: const Icon(Icons.add_alert),
             tooltip: 'Show Snackbar',
             onPressed: () {
-              scaffoldKey.currentState.showSnackBar(snackBar);
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: const Text('I am a snackbar'),
+              ));
             },
           ),
           IconButton(
@@ -255,7 +257,7 @@ class _ContainerDemo extends StatelessWidget {
           Container(
             constraints: BoxConstraints.expand(
               height:
-                  Theme.of(context).textTheme.headline4.fontSize * 1.1 + 200.0,
+                  Theme.of(context).textTheme.headline4!.fontSize! * 1.1 + 200.0,
             ),
             padding: EdgeInsets.all(8.0),
             color: Colors.amber[600],
@@ -264,8 +266,7 @@ class _ContainerDemo extends StatelessWidget {
               'Hello World',
               style: Theme.of(context)
                   .textTheme
-                  .headline4
-                  .copyWith(color: Colors.white),
+                  .headline4?.copyWith(color: Colors.white),
             ),
             transform: Matrix4.rotationZ(0.1),
           ),
@@ -373,8 +374,6 @@ class _PlaceHolder extends StatelessWidget {
 }
 
 class _ScaffoldDemo1 extends StatefulWidget {
-  _ScaffoldDemo1({Key key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return _ScaffoldDemo1State();
@@ -431,8 +430,6 @@ class _ScaffoldDemo1State extends State<_ScaffoldDemo1> {
 }
 
 class _ScaffoldDemo2 extends StatefulWidget {
-  _ScaffoldDemo2({Key key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return _ScaffoldDemo2State();
@@ -462,8 +459,6 @@ class _ScaffoldDemo2State extends State<_ScaffoldDemo2> {
 }
 
 class _ScaffoldDemo3 extends StatefulWidget {
-  _ScaffoldDemo3({Key key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     return _ScaffoldDemo3State();
