@@ -3,6 +3,8 @@ import 'package:widget_catalog/basics_page.dart';
 import 'package:widget_catalog/common/widget_entry.dart';
 import 'package:widget_catalog/material_components/app_structure_and_navigation/drawer.dart';
 import 'package:widget_catalog/material_components/app_structure_and_navigation/tab_bar.dart';
+import 'package:widget_catalog/material_components/information_displays/grid_view.dart';
+import 'package:widget_catalog/material_components/information_displays/information_displays.dart';
 
 import 'app_structure_and_navigation/bottom_navigation_bar.dart';
 
@@ -13,7 +15,7 @@ class MaterialComponentsPage extends StatelessWidget {
     WidgetEntry("Buttons", _ButtonsDemo()),
     WidgetEntry("Input and selections", _InputAndSelectionsDemo()),
     WidgetEntry("Dialogs, alerts, and panels", _DialogsAlertsAndPanelsDemo()),
-    WidgetEntry("Information displays", _InformationDisplaysDemo()),
+    WidgetEntry("Information displays", InformationDisplaysPage()),
     WidgetEntry("Layout", _LayoutDemo()),
   ];
 
@@ -96,14 +98,6 @@ class _InputAndSelectionsDemo extends StatelessWidget {
 }
 
 class _DialogsAlertsAndPanelsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
-}
-
-class _InformationDisplaysDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

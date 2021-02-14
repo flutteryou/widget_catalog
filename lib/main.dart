@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:widget_catalog/assets_images_and_icons_page.dart';
 import 'package:widget_catalog/accessibility_page.dart';
 import 'package:widget_catalog/animation_and_motion_page.dart';
@@ -15,6 +16,7 @@ import 'package:widget_catalog/styling_page.dart';
 import 'package:widget_catalog/text_page.dart';
 
 void main() {
+  // debugPaintSizeEnabled = true;
   runApp(MyApp());
 }
 
