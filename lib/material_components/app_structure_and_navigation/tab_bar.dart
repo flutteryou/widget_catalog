@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TabBarDemo extends StatelessWidget {
+  List<String> _tabs = [
+    '静音',
+    '半濁音',
+    '濁音',
+    '拗音',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -8,57 +15,37 @@ class TabBarDemo extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blueGrey.shade500,
-          title: Text('五十音'),
           actions: <Widget>[
             IconButton(
-              icon: const Icon(Icons.add_alert),
+              icon: const Icon(Icons.help_sharp),
               tooltip: 'Show Snackbar',
               onPressed: () {},
             ),
             IconButton(
-              icon: const Icon(Icons.navigate_next),
+              icon: const Icon(Icons.settings_sharp),
               tooltip: 'Next page',
               onPressed: () {},
             ),
           ],
-          bottom: TabBar(
-            indicatorColor: Colors.lime,
-            indicatorWeight: 5.0,
-            labelColor: Colors.white,
-            labelPadding: EdgeInsets.only(top: 10.0),
-            unselectedLabelColor: Colors.grey,
-            tabs: [
-              Tab(
-                text: '清音',
-                // icon: Icon(
-                //   Icons.cake,
-                //   color: Colors.white,
-                // ),
-                // iconMargin: EdgeInsets.only(bottom: 10.0),
+          title: TabBar(
+            indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(
+                width: 4,
+                color: Color(0xFF646464),
               ),
-              //child: Image.asset('images/android.png'),
-
-              Tab(
-                text: '半浊音',
-                // icon: Icon(
-                //   Icons.radio,
-                //   color: Colors.white,
-                // ),
-                // iconMargin: EdgeInsets.only(bottom: 10.0),
+              insets: EdgeInsets.only(
+                left: 0,
+                right: 8,
               ),
-              Tab(
-                text: '浊音',
-                // icon: Icon(
-                //   Icons.card_giftcard,
-                //   color: Colors.white,
-                // ),
-                // iconMargin: EdgeInsets.only(bottom: 10.0),
-              ),
-              Tab(
-                text: '拗音',
-              )
-            ],
+            ),
+            isScrollable: true,
+            labelPadding: EdgeInsets.only(left: 0, right: 0),
+            tabs: _tabs
+                .map((label) => Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Tab(text: "$label"),
+                    ))
+                .toList(),
           ),
         ),
         body: TabBarView(
