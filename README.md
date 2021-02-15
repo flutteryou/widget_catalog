@@ -16,3 +16,4 @@
 * [Waiting for another flutter command to release the startup lock](https://stackoverflow.com/questions/51679269/waiting-for-another-flutter-command-to-release-the-startup-lock)
 * [Upgrading Flutter](https://flutter.dev/docs/development/tools/sdk/upgrading)
 * [State.initState() must be a void method without an `async` keyword](https://stackoverflow.com/questions/61764400/state-initstate-must-be-a-void-method-without-an-async-keyword)
+* [Cannot run with sound null safety because dependencies don't support null safety](https://stackoverflow.com/questions/64917744/cannot-run-with-sound-null-safety-because-dependencies-dont-support-null-safety)
