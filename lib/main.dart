@@ -12,6 +12,8 @@ import 'package:widget_catalog/interaction_models_page.dart';
 import 'package:widget_catalog/layout_page.dart';
 import 'package:widget_catalog/material_components/material_components_page.dart';
 import 'package:widget_catalog/painting_and_effects_page.dart';
+import 'package:widget_catalog/persistence/persistence.dart';
+import 'package:widget_catalog/persistence/shared_preferences.dart';
 import 'package:widget_catalog/scrolling_page.dart';
 import 'package:widget_catalog/styling_page.dart';
 import 'package:widget_catalog/text_page.dart';
@@ -53,7 +55,7 @@ class MyHomePage extends StatelessWidget {
   final List<WidgetEntry> entries = [
     WidgetEntry('Accessibility', AccessibilityPage()),
     WidgetEntry('Animation and Motion', AnimationAndMotionPage()),
-    WidgetEntry('Assets, Images, and Icons',  AssetsImagesAndIconsPage()),
+    WidgetEntry('Assets, Images, and Icons', AssetsImagesAndIconsPage()),
     WidgetEntry('Async', AsyncPage()),
     WidgetEntry('Basics', BasicsPage()),
     WidgetEntry('Cupertino (iOS-style widgets)', CupertinoPage()),
@@ -107,6 +109,15 @@ class MyHomePage extends StatelessWidget {
                     builder: (_) => DataAndBackendPage(),
                   )),
             ),
+            ListTile(
+              title: Text('Data Persistence'),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => PersistencePage(),
+                ),
+              ),
+            )
           ],
         ),
       ),
