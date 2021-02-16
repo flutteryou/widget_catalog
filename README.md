@@ -17,3 +17,4 @@
 * [Upgrading Flutter](https://flutter.dev/docs/development/tools/sdk/upgrading)
 * [State.initState() must be a void method without an `async` keyword](https://stackoverflow.com/questions/61764400/state-initstate-must-be-a-void-method-without-an-async-keyword)
 * [Cannot run with sound null safety because dependencies don't support null safety](https://stackoverflow.com/questions/64917744/cannot-run-with-sound-null-safety-because-dependencies-dont-support-null-safety)
+* [Flutter: Unhandled exception: MissingPluginException(No implementation found for method getAll on channel plugins.flutter.io/shared_preferences)](https://stackoverflow.com/questions/50687801/flutter-unhandled-exception-missingpluginexceptionno-implementation-found-for)
