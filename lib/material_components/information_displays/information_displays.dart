@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:widget_catalog/common/widget_entry.dart';
 import 'package:widget_catalog/material_components/information_displays/grid_view.dart';
 
+import 'chip_demo.dart';
+
 class InformationDisplaysPage extends StatelessWidget {
   List<WidgetEntry> entries = [
     WidgetEntry('Card', Container()),
-    WidgetEntry('Chip', Container()),
+    WidgetEntry('Chip', ChipDemo()),
     WidgetEntry('CircularProgressIndicator', Container()),
     WidgetEntry('DataTable', Container()),
     WidgetEntry('GridView', GridViewDemo()),

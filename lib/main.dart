@@ -14,7 +14,7 @@ import 'package:widget_catalog/material_components/material_components_page.dart
 import 'package:widget_catalog/painting_and_effects_page.dart';
 import 'package:widget_catalog/persistence/persistence.dart';
 import 'package:widget_catalog/persistence/shared_preferences.dart';
-import 'package:widget_catalog/scrolling_page.dart';
+import 'package:widget_catalog/scrolling/scrolling_page.dart';
 import 'package:widget_catalog/styling_page.dart';
 import 'package:widget_catalog/text_page.dart';
 import 'package:widget_catalog/common/widget_entry.dart';

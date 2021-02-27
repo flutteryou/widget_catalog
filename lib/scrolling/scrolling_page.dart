@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:widget_catalog/common/widget_entry.dart';
+import 'package:widget_catalog/scrolling/draggable_scrollable_sheet_demo.dart';
 
 class ScrollingPage extends StatelessWidget {
   List<WidgetEntry> entries = [
     WidgetEntry('CustomScrollView', _CustomScrollViewDemo()),
+    WidgetEntry('DraggableScrollableSheet', DraggableScrollableSheetDemo()),
     WidgetEntry('GridView', _GridViewDemo()),
     WidgetEntry('ListView', _ListViewDemo()),
     WidgetEntry('NestedScrollView', _NestedScrollViewDemo()),
