@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:widget_catalog/assets_images_and_icons_page.dart';
 import 'package:widget_catalog/accessibility_page.dart';
-import 'package:widget_catalog/animation_and_motion_page.dart';
+import 'package:widget_catalog/animation_and_motion/animation_and_motion_page.dart';
 import 'package:widget_catalog/async_page.dart';
 import 'package:widget_catalog/basics_page.dart';
 import 'package:widget_catalog/cupertino_page.dart';
