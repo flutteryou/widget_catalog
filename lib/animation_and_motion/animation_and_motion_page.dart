@@ -3,6 +3,7 @@ import 'package:widget_catalog/common/widget_entry.dart';
 
 import 'animated_align_demo.dart';
 import 'animated_builder_demo.dart';
+import 'animated_container_demo.dart';
 
 class AnimationAndMotionPage extends SingleChoicePage {
   AnimationAndMotionPage() : super(
@@ -10,6 +11,7 @@ class AnimationAndMotionPage extends SingleChoicePage {
     [
       WidgetEntry('AnimatedAlign', AnimatedAlignDemo()),
       WidgetEntry('AnimatedBuilder', AnimatedBuilderDemo()),
+      WidgetEntry('AnimatedContainer', AnimatedContainerDemo()),
     ]
   );
 }
