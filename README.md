@@ -11,6 +11,7 @@
 ---
 
 * [Adding assets and images](https://flutter.dev/docs/development/ui/assets-and-images)
+* [Animations tutorial](https://flutter.dev/docs/development/ui/animations/tutorial)
 
 ## Trouble Shooting
 * [Waiting for another flutter command to release the startup lock](https://stackoverflow.com/questions/51679269/waiting-for-another-flutter-command-to-release-the-startup-lock)

@@ -11,6 +11,7 @@ import 'package:widget_catalog/input_page.dart';
 import 'package:widget_catalog/interaction_models_page.dart';
 import 'package:widget_catalog/layout_page.dart';
 import 'package:widget_catalog/material_components/material_components_page.dart';
+import 'package:widget_catalog/navigation/navigation_page.dart';
 import 'package:widget_catalog/painting_and_effects_page.dart';
 import 'package:widget_catalog/persistence/persistence.dart';
 import 'package:widget_catalog/persistence/shared_preferences.dart';
@@ -115,6 +116,15 @@ class MyHomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (_) => PersistencePage(),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Navigation'),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => NavigationPage(),
                 ),
               ),
             )
